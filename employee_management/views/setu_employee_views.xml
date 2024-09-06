@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+
+        <record id="setu_employee_view_tree" model="ir.ui.view">
+            <field name="name">setu.employee.tree</field>
+            <field name="model">setu.employee</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="address"/>
+                    <field name="state_id"/>
+                    <field name="country_id"/>
+                    <field name="department_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="setu_employee_view_form" model="ir.ui.view">
+            <field name="name">setu.employee.form</field>
+            <field name="model">setu.employee</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="address"/>
+                                <field name="state_id"/>
+                                <field name="country_id"/>
+                            </group>
+                            <group>
+                                <field name="department_id"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+                </form>
+            </field>
+        </record>
+
+        
+        <record id="action_setu_employee" model="ir.actions.act_window">
+            <field name="name">Employee</field>
+            <field name="res_model">setu.employee</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        
+        <menuitem
+                id="setu_employee"
+                name="Employee"
+                parent="sub_root_1"
+                action="employee_management.action_setu_employee"
+                sequence="1"
+        />
+        
+    </data>
+</odoo>

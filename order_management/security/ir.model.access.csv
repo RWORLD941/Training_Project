@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_setu_customer,setu.customer,model_setu_customer,,1,1,1,1
+access_setu_order,setu.order,model_setu_order,,1,1,1,1
+access_setu_salesman,setu.salesman,model_setu_salesman,,1,1,1,1

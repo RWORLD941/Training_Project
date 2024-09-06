@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+
+        <record id="setu_customer_view_tree" model="ir.ui.view">
+            <field name="name">setu.customer.tree</field>
+            <field name="model">setu.customer</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="address"/>
+                    <field name="pan_number"/>
+                    <field name="order_ids" widget="many2many_tags"/>
+                    <field name="salesman_ids" widget="many2many_tags"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="setu_customer_view_form" model="ir.ui.view">
+            <field name="name">setu.customer.form</field>
+            <field name="model">setu.customer</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="address"/>
+                                <field name="pan_number"/>
+                            </group>
+                            <group>
+                                <field name="order_ids" widget="many2many_tags"/>
+                            </group>
+                            <notebook>
+                                <page string="Salesman Information">
+                                    <group>
+                                        <field name="salesman_ids" widget="many2many_tags"/>
+                                    </group>
+                                </page>
+                            </notebook>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+                </form>
+            </field>
+        </record>
+
+        
+        <record id="action_setu_customer" model="ir.actions.act_window">
+            <field name="name">Customer</field>
+            <field name="res_model">setu.customer</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        
+        <menuitem
+                id="setu_order_management_main"
+                name="Order Management"
+                sequence="10"
+        />
+
+        <menuitem
+                id="sub_root_1"
+                name="Order Management"
+                parent="setu_order_management_main"
+        />
+
+        <menuitem
+                id="setu_customer"
+                name="Customer"
+                parent="sub_root_1"
+                action="order_management.action_setu_customer"
+                sequence="1"
+        />
+        
+    </data>
+</odoo>
