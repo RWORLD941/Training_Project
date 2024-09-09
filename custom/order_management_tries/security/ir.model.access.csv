@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_res_customer_manager,access_res_customer_manager,model_res_customer,,1,1,1,1
+access_res_salesman_manager,access_res_salesman_manager,model_res_salesman,,1,1,1,1
+access_sales_order_manager,access_sales_order_manager,model_sales_order,,1,1,1,1

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+
+        <record id="setu_book_issue_view_tree" model="ir.ui.view">
+            <field name="name">setu.book.issue.tree</field>
+            <field name="model">setu.book.issue</field>
+            <field name="arch" type="xml">
+                <tree>
+<!--                    <field name="candidate"/>-->
+                    <field name="number"/>
+<!--                    <field name="subject"/>-->
+                    <field name="date"/>
+                    <field name="branch"/>
+                    <field name="book_ids" widget="many2many_tags"/>
+                    <field name="candidate_id"/>
+                    <field name="subject_ids" widget="many2many_tags"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="setu_book_issue_view_form" model="ir.ui.view">
+            <field name="name">setu.book.issue.form</field>
+            <field name="model">setu.book.issue</field>
+            <field name="arch" type="xml">
+                <form string="Test">
+                    <sheet>
+                        <group>
+                            <group>
+<!--                                <field name="candidate"/>-->
+                                <field name="number"/>
+<!--                                <field name="subject"/>-->
+                                <field name="date"/>
+                                <field name="branch"/>
+                                <field name="book_ids" widget="many2many_tags"/>
+                                <field name="candidate_id"/>
+                                <field name="subject_ids" widget="many2many_tags"/>
+                            </group>
+<!--                            <notebook>-->
+<!--                                <page string="Description">-->
+<!--                                    <group>-->
+<!--                                        <field name="subject"/>-->
+<!--                                    </group>-->
+<!--                                </page>-->
+<!--                            </notebook>-->
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_setu_book_issue" model="ir.actions.act_window">
+            <field name="name">Book Issue</field>
+            <field name="res_model">setu.book.issue</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+<!--        <menuitem-->
+<!--                id="setu_book_issue_main"-->
+<!--                name="Book Issue"-->
+<!--                sequence="10"/>-->
+        <menuitem
+                id="setu_book_issue"
+                name="Book Issue"
+                parent="sub_root_2"
+                action="action_setu_book_issue"
+                sequence="1"/>
+    </data>
+</odoo>

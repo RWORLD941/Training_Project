@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+
+        <record id="setu_college_view_tree" model="ir.ui.view">
+            <field name="name">setu.college.tree</field>
+            <field name="model">setu.college</field>
+            <field name="arch" type="xml">
+                <tree>
+
+<!--                    <field name="id"/>-->
+<!--                    <field name="create_uid"/>-->
+<!--                    <field name="create_date"/>-->
+<!--                    <field name="write_uid"/>-->
+<!--                    <field name="write_date"/>-->
+
+                    <field name="college_no"/>
+                    <field name="name"/>
+                    <field name="medium"/>
+                    <field name="average_fees"/>
+                    <field name="international"/>
+                    <field name="register_date"/>
+<!--                    <field name="form_time"/>-->
+                </tree>
+            </field>
+        </record>
+
+        <record id="setu_college_view_form" model="ir.ui.view">
+            <field name="name">setu.college.form</field>
+            <field name="model">setu.college</field>
+            <field name="arch" type="xml">
+                <form string="Test">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="college_no"/>
+                                <field name="international"/>
+                                <field name="medium"/>
+                            </group>
+                            <group>
+                                <field name="average_fees"/>
+                            </group>
+                            <notebook>
+                                <page string="Description">
+                                    <group>
+                                        <field name="register_date"/>
+                                        <field name="create_date" string="Form Time" readonly="1"/>
+<!--                                        <field name="form_time"/>-->
+                                    </group>
+                                </page>
+                            </notebook>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_setu_college" model="ir.actions.act_window">
+            <field name="name">College</field>
+            <field name="res_model">setu.college</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+<!--        <menuitem-->
+<!--                id="setu_college_main"-->
+<!--                name="Setu"-->
+<!--                sequence="10"/>-->
+
+        <menuitem
+                id="setu_college_main"
+                name="Setu College Management"
+                sequence="10"/>
+
+        <menuitem
+                id="sub_root_1"
+                name="College Management"
+                parent="setu_college_main"/>
+
+        <menuitem
+                id="sub_root_2"
+                name="Books Management"
+                parent="setu_college_main"/>
+
+        <menuitem
+                id="setu_college"
+                name="College"
+                parent="sub_root_1"
+                action="setu_college_management.action_setu_college"
+                sequence="1"/>
+    </data>
+</odoo>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <data>
+        <record id="school_student.list" model="ir.ui.view">
+            <field name="name">school_student list</field>
+            <field name="model">school.student</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="school_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="school_student.form" model="ir.ui.view">
+            <field name="name">school_student form</field>
+            <field name="model">school.student</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="school_id"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="school_extend_form" model="ir.ui.view">
+            <field name="name">school_extend form</field>
+            <field name="model">school.profile</field>
+            <field name="inherit_id" ref="school.school_form_view"/>
+            <field name="arch" type="xml">
+                <field name="school_description2" position="after">
+                    <field name="school_list"/>
+                </field>
+            </field>
+        </record>
+
+
+        <record id="school_student.action_window" model="ir.actions.act_window">
+            <field name="name">school_student window</field>
+            <field name="res_model">school.student</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.actions.server" id="school_student.action_server">
+            <field name="name">school_student server</field>
+            <field name="model_id" ref="model_school_student"/>
+            <field name="state">code</field>
+            <field name="code">
+                action={
+                 "type":"ir.actions.act_window",
+                 "view_mode":"tree,form",
+                 "res_model":model.name,
+                }
+            </field>
+        </record>
+
+        <menuitem id="school_student.menu_root" name="school_student"/>
+        <menuitem name="Menu 1" id="school_student.menu_1" parent="school_student.menu_root"/>
+        <menuitem name="Menu 2" id="school_student.menu_2" parent="school_student.menu_root"/>
+        <menuitem name="List" id="school_student.menu_1_list" action="school_student.action_window" parent="school_student.menu_1"/>
+        <menuitem name="Server to list" id="school_student" action="school_student.action_server" parent="school_student.menu_2"/>
+    </data>
+</odoo>

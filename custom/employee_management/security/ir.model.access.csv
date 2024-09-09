@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_setu_country,setu.country,model_setu_country,,1,1,1,1
+access_setu_department,setu.department,model_setu_department,,1,1,1,1
+access_setu_employee,setu.employee,model_setu_employee,,1,1,1,1
+access_setu_state,setu.state,model_setu_state,,1,1,1,1

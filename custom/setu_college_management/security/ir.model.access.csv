@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_setu_college,setu.college,model_setu_college,,1,1,1,1
+access_setu_professor,setu.professor,model_setu_professor,,1,1,1,1
+access_setu_candidate,setu.candidate,model_setu_candidate,,1,1,1,1
+access_setu_book,setu.book,model_setu_book,,1,1,1,1
+access_setu_book_issue,setu.book.issue,model_setu_book_issue,,1,1,1,1
+access_setu_subject,setu.subject,model_setu_subject,,1,1,1,1

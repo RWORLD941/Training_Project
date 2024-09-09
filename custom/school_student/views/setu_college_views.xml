@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="school_student_inherited_setu_college_view_form" model="ir.ui.view">
+        <field name="name">school_student_inherited_setu_college_view_form</field>
+        <field name="model">setu.college</field>
+        <field name="inherit_id" ref="setu_college_management.setu_college_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='medium']" position="before">
+<!--                can be before, after, replace, attribute-->
+                <field name="college_closed"/>
+                <field name="college_expire_date"/>
+            </xpath>
+
+            <xpath expr="//field[@name='average_fees']" position="after">
+                <field name="state" required="1"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="school_student_inherited_setu_college_view_tree" model="ir.ui.view">
+        <field name="name">school_student_inherited_setu_college_view_tree</field>
+        <field name="model">setu.college</field>
+        <field name="inherit_id" ref="setu_college_management.setu_college_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='medium']" position="before">
+<!--                can be before, after, replace, attribute-->
+                <field name="college_closed"/>
+                <field name="college_expire_date"/>
+            </xpath>
+
+            <xpath expr="//field[@name='international']" position="after">
+                <field name="state" required="1"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

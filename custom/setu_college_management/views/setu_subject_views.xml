@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+
+        <record id="setu_subject_view_tree" model="ir.ui.view">
+            <field name="name">setu.subject.tree</field>
+            <field name="model">setu.subject</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+<!--                    <field name="professor"/>-->
+                    <field name="medium"/>
+                    <field name="book_ids" widget="many2many_tags"/>
+                    <field name="professor_ids" widget="many2many_tags"/>
+<!--                    <field name="book_issue_ids" widget="many2many_tags"/>-->
+                </tree>
+            </field>
+        </record>
+
+        <record id="setu_subject_view_form" model="ir.ui.view">
+            <field name="name">setu.subject.form</field>
+            <field name="model">setu.subject</field>
+            <field name="arch" type="xml">
+                <form string="Test">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+<!--                                <field name="professor"/>-->
+                                <field name="medium"/>
+                                <field name="book_ids" widget="many2many_tags"/>
+                                <field name="professor_ids" widget="many2many_tags"/>
+<!--                                <field name="book_issue_ids" widget="many2many_tags"/>-->
+                            </group>
+<!--                            <notebook>-->
+<!--                                <page string="Description">-->
+<!--                                    <group>-->
+<!--                                        <field name="subject"/>-->
+<!--                                    </group>-->
+<!--                                </page>-->
+<!--                            </notebook>-->
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_setu_subject" model="ir.actions.act_window">
+            <field name="name">Subject</field>
+            <field name="res_model">setu.subject</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+<!--        <menuitem-->
+<!--                id="setu_subject_main"-->
+<!--                name="Subject"-->
+<!--                sequence="10"/>-->
+        <menuitem
+                id="setu_subject"
+                name="Subject"
+                parent="sub_root_2"
+                action="action_setu_subject"
+                sequence="1"/>
+    </data>
+</odoo>
