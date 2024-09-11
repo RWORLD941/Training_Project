@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+
+        <record id="view_order_tree" model="ir.ui.view">
+            <field name="name">sales.order.tree</field>
+            <field name="model">sales.order</field>
+            <field name="arch" type="xml">
+                <tree string="Orders">
+                    <field name="number"/>
+                    <field name="product"/>
+                    <field name="price"/>
+                    <field name="quantity"/>
+                    <field name="bill_total"/>
+                    <field name="customer_id" widget='many2one'/>
+                    <field name="salesman_id" widget='many2one'/>
+<!--                    <field name="customer_name"/>-->
+<!--                    <field name="salesman_name"/>-->
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_order_form" model="ir.ui.view">
+            <field name="name">sales.order.form</field>
+            <field name="model">sales.order</field>
+            <field name="arch" type="xml">
+                <form string="Order">
+                    <sheet>
+                        <group>
+                            <field name="number"/>
+                            <field name="product"/>
+                            <field name="price"/>
+                            <field name="quantity"/>
+                            <field name="bill_total"/>
+                            <field name="customer_id" widget='many2one'/>
+                            <field name="salesman_id" widget='many2one'/>
+<!--                            <field name="customer_name" readonly="1"/>-->
+<!--                            <field name="salesman_name" readonly="1"/>-->
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        
+        <record id="action_setu_order" model="ir.actions.act_window">
+            <field name="name">Order</field>
+            <field name="res_model">sales.order</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        
+        <menuitem
+                id="setu_order"
+                name="Order"
+                parent="sub_root_1"
+                action="action_setu_order"
+                sequence="1"
+        />
+        
+    </data>
+</odoo>
