@@ -142,7 +142,7 @@ class Customer(models.Model):
     # --> Customer()
     #
     # 2) cust_obj.browse(3)
-    # --> Customer(3, )
+    # --> Customer(3, )      ---  record-set of ID - 3
     #
     # 3) cust_list = cust_obj.browse(3)
     #    cust_list
@@ -174,4 +174,11 @@ class Customer(models.Model):
     #     Customer(5, )
 
 
-    
+    # Search Method
+    # cust_obj = self.env['res.customer']
+    # cust_obj.search([])
+    # ---> res.customer(1, 2, 3, 4, 5, 6, 7, 17, 18, 30)
+    # len(cust_obj.search([]))
+    # ---> 10
+    # cust_obj.search([('id','=',3)])
+    # ---> res.customer(3, )
