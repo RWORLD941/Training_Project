@@ -39,7 +39,7 @@
                             <group>
                                 <field name="customer_id"/>
                                 <field name="bill_total"/>
-                                <button name="button_bill_total" string="Total Bill" class="oe_highlight" type="object"/>
+<!--                                <button name="button_bill_total" string="Total Bill" class="oe_highlight" type="object"/>-->
                             </group>
                             <notebook>
                                 <page string="Salesman">

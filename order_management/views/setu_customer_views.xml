@@ -13,7 +13,7 @@
                     <field name="pan_number"/>
                     <field name="order_ids" widget="many2many_tags"/>
 <!--                    <field name="salesman_ids" widget="many2many_tags"/>-->
-                    <field name="salesman_id"/>
+                    <field name="salesman_names"/>
                 </tree>
             </field>
         </record>
@@ -36,6 +36,7 @@
                             <notebook>
                                 <page string="Salesman Information">
                                     <group>
+                                        <field name="salesman_names"/>
 <!--                                        <field name="salesman_ids" widget="many2many_tags"/>-->
                                     </group>
                                 </page>

@@ -1,4 +1,4 @@
-from odoo import models,fields,api
+from odoo import models, fields, api
 import datetime
 
 
@@ -12,12 +12,20 @@ class Salesman(models.Model):
     # address = fields.Char(string='Address')
     # department = fields.Char(string='Department')
     # product = fields.Char(string='Product')
-    currency_id = fields.Many2one("res.currency")
+
+
+    # currency_id = fields.Many2one("res.currency",default = lambda self:self.env.user.company_id.currency_id)
+    currency_id = fields.Many2one('res.currency', required=True, compute = '_compute_currency_id')
+    # currency_id = fields.Many2one('res.currency', required=True, default = lambda self:self._compute_currency_id(), store=True)
 
     order_ids = fields.One2many('sales.order', 'salesman_id', string='Orders')
     customer_names = fields.Char(string='Customer Names', compute='_compute_customer_names', store=True)
-    total_sale = fields.Monetary("Total Sales", compute='_compute_total_sale',currency_field=self.env.company.currency_id.id)
+    # total_sale = fields.Monetary("Total Sales", compute='_compute_total_sale',
+    #                              currency_field=lambda self: self.get_currency_field('res.company'))
+    #
+    # # env.company.currency_id.id
 
+    total_sale = fields.Monetary("Total Sales", compute='_compute_total_sale')
 
     @api.depends('order_ids.customer_id')
     def _compute_customer_names(self):
@@ -28,5 +36,7 @@ class Salesman(models.Model):
     # @api.depends('order_ids.bill_total')
     def _compute_total_sale(self):
         self.total_sale = sum(self.order_ids.mapped("bill_total"))
-        print("hi")
 
+    # @api.depends('currency_id')
+    def _compute_currency_id(self):
+        self.currency_id = self.env.user.company_id.currency_id

@@ -1,6 +1,6 @@
-from odoo import models,fields,api
 from odoo.exceptions import UserError
-import datetime
+
+from odoo import models, fields, api
 
 
 class Customer(models.Model):

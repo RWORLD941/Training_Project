@@ -12,5 +12,5 @@ class SetuSalesman(models.Model):
 
     order_ids = fields.One2many('setu.order','salesman_id')
     # customer_ids = fields.Many2many('setu.customer','customer_salesman_rel','customer_id','salesman_id')
-    customer_ids = fields.One2many('setu.customer','salesman_id')
+    # customer_ids = fields.One2many('setu.customer','salesman_id')
     # customer_id = fields.Many2one('setu.order','salesman_id')
